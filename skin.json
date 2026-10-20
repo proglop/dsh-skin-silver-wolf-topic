@@ -1,0 +1,40 @@
+{
+  "id": "silver-wolf",
+  "name": "银狼·像素骇入",
+  "nameEn": "Silver Wolf // Pixel Intrusion",
+  "author": "Local skin package",
+  "tagline": "蓝紫霓虹像素、银狼居中装饰与直角界面",
+  "taglineEn": "Blue-violet neon pixels, a centered Silver Wolf ornament and square chrome",
+  "description": "《崩坏：星穹铁道》银狼常态版本的深色像素皮肤。聊天区中央的银狼装饰会随侧栏收展平移；停止按钮、焦点环与活动标记使用低占比粉红。",
+  "tags": [
+    "silver-wolf",
+    "honkai-star-rail",
+    "pixel",
+    "blue",
+    "violet",
+    "dark"
+  ],
+  "accent": "#435cff",
+  "bodyAttr": "data-dsh-silver-wolf",
+  "dshCompatibility": "0.2.1rc2",
+  "package": "dsh-client-ui-skin-silver-wolf",
+  "wiring": {
+    "id": "ui-skin-silver-wolf",
+    "bundleWired": false
+  },
+  "preview": {
+    "dark": "preview/dark.png"
+  },
+  "appearance": "dark",
+  "modes": [
+    "dark"
+  ],
+  "order": 20,
+  "assets": {
+    "wallpaper": "assets/silver-wolf-chat.png",
+    "badge": "assets/silver-wolf-badge.png",
+    "pluginIcon": "assets/icons/silver-wolf.png",
+    "originalScene": "assets/original/silver-wolf-scene-original.png",
+    "originalBadge": "assets/original/silver-wolf-badge-original.png"
+  }
+}

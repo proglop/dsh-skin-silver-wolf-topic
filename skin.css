@@ -1,0 +1,1006 @@
+/* ==========================================================================
+   Silver Wolf // Pixel Intrusion — dark-only DSH skin
+   Scoped by body[data-dsh-silver-wolf]. No font imports, no layout metrics,
+   no token changes that alter the chat content width or text size.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Color layers. LV999 can replace these aliases without touching selectors.
+   Base = blue-violet black; primary = Silver Wolf hair-tip blue;
+   accent = cyan neon; secondary = hot pink; all panels are solid.
+   -------------------------------------------------------------------------- */
+body[data-dsh-silver-wolf] {
+  --sw-base-950: #060812;
+  --sw-base-900: #080b16;
+  --sw-base-850: #0a0e1b;
+  --sw-panel-900: #0c1120;
+  --sw-panel-850: #0f1526;
+  --sw-panel-800: #12182c;
+  --sw-input-900: #090d19;
+  --sw-line-700: #222b47;
+  --sw-line-600: #2d395c;
+  --sw-line-500: #3b4a76;
+  --sw-text-100: #98a1c4;
+  --sw-text-200: #9aaad7;
+  --sw-text-300: #92a1c9;
+  --sw-text-400: #6f7b9c;
+  --sw-blue-900: #1b2670;
+  --sw-blue-800: #2636a8;
+  --sw-blue-700: #3248d6;
+  --sw-blue-600: #435cff;
+  --sw-blue-500: #5d79ff;
+  --sw-blue-400: #86a5ff;
+  --sw-cyan-500: #62e6ff;
+  --sw-cyan-400: #9af3ff;
+  --sw-pink-500: #ff4f86;
+  --sw-glow-blue: rgb(93 121 255 / 48%);
+  --sw-glow-cyan: rgb(98 230 255 / 42%);
+  --sw-composer-border: #465a8c;
+  --sw-wallpaper-width: 760px;
+  --sw-wallpaper-opacity: 0.24;
+
+  /* LV999 light palette can rebind only these aliases. */
+  --sw-theme-canvas: var(--sw-base-900);
+  --sw-theme-panel: var(--sw-panel-900);
+  --sw-theme-raised: var(--sw-panel-850);
+  --sw-theme-input: var(--sw-input-900);
+  --sw-theme-line: var(--sw-line-700);
+  --sw-theme-primary: var(--sw-blue-600);
+  --sw-theme-accent: var(--sw-cyan-500);
+  --sw-theme-secondary: var(--sw-pink-500);
+
+  background-color: var(--sw-theme-canvas);
+}
+
+body[data-dsh-silver-wolf] .BynINW_frame {
+  /* DSH semantic tokens. Colors only; no font, width, or spacing tokens. */
+  --dsw-radius-xs: 0px;
+  --dsw-radius-sm: 0px;
+  --dsw-radius-md: 0px;
+  --dsw-radius-lg: 0px;
+  --dsw-radius-xl: 0px;
+  --dsw-radius-panel: 0px;
+  --dsw-corner-shape: square;
+
+  --dsw-alias-bg-base: var(--sw-base-900);
+  --dsw-alias-bg-layer-1: var(--sw-panel-900);
+  --dsw-alias-bg-layer-2: var(--sw-panel-850);
+  --dsw-alias-bg-layer-3: var(--sw-panel-800);
+  --dsw-alias-bg-overlay: var(--sw-panel-850);
+  --dsw-alias-bg-module-platform: var(--sw-panel-850);
+  --dsw-alias-bg-overlay: var(--sw-panel-900);
+  --dsw-alias-bg-skeleton: #182039;
+  --dsw-alias-bg-multi-select: #172141;
+  --dsw-alias-bg-mask-1: rgb(2 4 10 / 76%);
+  --dsw-alias-bg-mask-2: rgb(2 4 10 / 62%);
+  --dsw-alias-bg-mask-3: rgb(2 4 10 / 48%);
+
+  --dsw-specific-sidebar-fill: var(--sw-base-950);
+  --dsw-specific-input-major: var(--sw-panel-900);
+  --dsw-specific-menu: var(--sw-panel-900);
+  --dsw-specific-selector: var(--sw-panel-800);
+  --dsw-specific-bubble: var(--sw-panel-850);
+  --dsw-specific-bubble-highlight: var(--sw-panel-800);
+  --dsw-specific-tip: var(--sw-panel-800);
+
+  --dsw-alias-border-l1: #1a223a;
+  --dsw-alias-border-l2: var(--sw-line-700);
+  --dsw-alias-border-l2-darkmode-thin: #26304d;
+  --dsw-alias-border-l3: var(--sw-line-600);
+  --dsw-alias-border-l4: var(--sw-line-500);
+  --dsw-alias-border-inverted: #aab8ff;
+  --dsw-alias-border-inverted2: #dbe4ff;
+
+  --dsw-alias-label-primary: var(--sw-text-100);
+  --dsw-alias-label-primary-bluish: #dfe6ff;
+  --dsw-alias-label-primary-dimmed: #aab6da;
+  --dsw-alias-label-primary-foreground: #f7f9ff;
+  --dsw-alias-label-primary-inverted: #0a0e19;
+  --dsw-alias-label-secondary: var(--sw-text-200);
+  --dsw-alias-label-tertiary: var(--sw-text-300);
+  --dsw-alias-label-caption: #8792b1;
+  --dsw-alias-label-dimmed: #687392;
+  --dsw-alias-label-deep-diving: var(--sw-cyan-500);
+  --dsw-alias-label-deep-diving-shimmer: var(--sw-cyan-400);
+
+  --dsw-alias-brand-primary: var(--sw-blue-500);
+  --dsw-alias-brand-primary-invert: #0a0e19;
+  --dsw-alias-brand-text: var(--sw-text-100);
+  --dsw-alias-button-primary-fill: var(--sw-blue-600);
+  --dsw-alias-button-primary-hover: var(--sw-blue-500);
+  --dsw-alias-button-primary-dimmed: var(--sw-blue-900);
+  --dsw-alias-button-info-fill: var(--sw-blue-600);
+  --dsw-alias-button-info-hover: var(--sw-blue-500);
+  --dsw-alias-button-elevated-fill: var(--sw-panel-850);
+  --dsw-alias-button-floating-fill: var(--sw-panel-800);
+  --dsw-alias-button-floating-hover: var(--sw-panel-900);
+  --dsw-alias-button-tool-bar-fill: var(--sw-panel-850);
+  --dsw-alias-button-tool-bar-hover: var(--sw-panel-800);
+  --dsw-alias-button-ghost-active-fill: #182344;
+  --dsw-alias-button-ghost-active-border: var(--sw-blue-700);
+
+  --dsw-alias-state-business-primary: var(--sw-blue-500);
+  --dsw-alias-state-business-tertiary: #142047;
+  --dsw-alias-state-idle-primary: #7d89a9;
+  --dsw-alias-state-error-primary: #ff596f;
+  --dsw-alias-state-error-secondary: #d63d55;
+  --dsw-alias-state-success-primary: #53e7bd;
+  --dsw-alias-state-success-secondary: #1aa887;
+  --dsw-alias-state-success-tertiary: #0b2a28;
+  --dsw-alias-state-warn-primary: #ffd27a;
+  --dsw-alias-state-warn-secondary: #c7963e;
+  --dsw-alias-state-warn-tertiary: #2a2113;
+
+  --dsw-alias-link: var(--sw-cyan-500);
+  --dsw-alias-markdown-citation: var(--sw-cyan-500);
+  --dsw-alias-markdown-inline-code: #b9c8ff;
+  --dsw-alias-markdown-code-block: #080c17;
+  --dsw-alias-markdown-code-block-banner: #0d1425;
+  --dsw-alias-markdown-code-segment-selected: #1a2750;
+  --dsw-alias-markdown-code-segment-unselected: #0d1425;
+  --dsw-alias-markdown-placeholder: #6f7b9c;
+
+  --dsw-alias-interactive-bg-hover: #16203a;
+  --dsw-alias-interactive-bg-hover-solid: #18223e;
+  --dsw-alias-interactive-bg-hover-accent: #1b2b52;
+  --dsw-alias-interactive-bg-hover-danger: #2b1420;
+  --dsw-alias-interactive-bg-active: #1b2b52;
+
+  --dsw-alias-settings-card-fill: var(--sw-panel-900);
+  --dsw-alias-settings-card-stroke: var(--sw-line-700);
+  --dsw-alias-menu-group-header-fill: var(--sw-panel-850);
+  --dsw-alias-menu-icon: #b4c2e9;
+  --dsw-alias-tooltip-bg: #050811;
+  --dsw-alias-tooltip-key-bg: #172142;
+  --dsw-alias-toast-bg: #0e1730;
+  --dsw-alias-toast-label: var(--sw-text-100);
+  --dsw-alias-turn-trigger-bg: #10182c;
+  --dsw-alias-turn-trigger-bg-hover: #172342;
+  --dsw-specific-sidebar-nav-item-active: #172344;
+  --dsw-specific-sidebar-nav-item-active-accent: var(--sw-pink-500);
+  --dsw-specific-sidebar-nav-item-hover: #10182a;
+
+  --dsw-alias-scrollbar-bg-l1: #202b48;
+  --dsw-alias-scrollbar-bg-l2: #2a375a;
+  --dsw-alias-scrollbar-hover-l1: #34446e;
+  --dsw-alias-scrollbar-hover-l2: #425486;
+
+  --dsw-focus-ring-color: var(--sw-pink-500);
+  --dsw-focus-ring-width: 1px;
+  --dsw-menu-backdrop-filter: none;
+  --dsw-mask-blur: none;
+  --dsw-elevation-stroke: 1px solid var(--sw-line-700);
+  --dsw-elevation-panel: 5px 5px 0 rgb(0 0 0 / 42%);
+  --dsw-elevation-prominent: 7px 7px 0 rgb(0 0 0 / 48%);
+  --dsw-elevation-soft: 4px 4px 0 rgb(0 0 0 / 34%);
+  --dsw-shadow-lv1: 3px 3px 0 rgb(0 0 0 / 40%);
+  --dsw-shadow-lv2: 5px 5px 0 rgb(0 0 0 / 44%);
+  --dsw-shadow-lv3: 7px 7px 0 rgb(0 0 0 / 50%);
+
+}
+
+/* Light-mode chrome palette on the page root. The main frame keeps its dark
+   aliases; full-page surfaces such as the separate Settings window inherit
+   these softened off-whites instead of DSH's pure white presets. */
+body[data-dsh-silver-wolf]:not([data-ds-dark-theme]) {
+  --dsw-static-neutral-00: #f4f6f9;
+  --dsw-static-neutral-50: #eef1f5;
+  --dsw-static-neutral-100: #e8ecf2;
+  --dsw-alias-bg-base: #edf0f5;
+  --dsw-alias-bg-layer-1: #f7f8fa;
+  --dsw-alias-bg-layer-2: #e9edf3;
+  --dsw-alias-bg-layer-3: #e1e6ee;
+  --dsw-alias-bg-overlay: #f3f5f8;
+  --dsw-alias-bg-module-platform: #e9edf3;
+  --dsw-alias-bg-skeleton: #e4e9f0;
+  --dsw-alias-bg-multi-select: #e5eaf2;
+  --dsw-alias-border-l1: #dfe4ec;
+  --dsw-alias-border-l2: #d3dae4;
+  --dsw-alias-border-l3: #c8d0dc;
+  --dsw-alias-border-l4: #bcc5d2;
+  --dsw-alias-label-primary: #2f3544;
+  --dsw-alias-label-secondary: #596273;
+  --dsw-alias-label-tertiary: #7d8695;
+  --dsw-alias-interactive-bg-hover: #e8ecf2;
+  --dsw-alias-interactive-bg-hover-solid: #e3e8f0;
+  --dsw-alias-interactive-bg-active: #dde5ef;
+  --dsw-alias-settings-card-fill: #f4f6f9;
+  --dsw-alias-settings-card-stroke: #d9e0e9;
+  --dsw-specific-menu: #f2f4f7;
+  --dsw-specific-sidebar-fill: #eef1f5;
+  --dsw-specific-input-major: #f8f9fb;
+  --dsw-alias-menu-group-header-fill: #e6ebf2;
+  --dsw-alias-menu-icon: #596273;
+}
+
+/* --------------------------------------------------------------------------
+   2. Global shape language + canvas. The wildcard is the safety net for
+   hard-coded 50% / 999px / corner-shape:round declarations in DSH.
+   -------------------------------------------------------------------------- */
+body[data-dsh-silver-wolf] *,
+body[data-dsh-silver-wolf] *::before,
+body[data-dsh-silver-wolf] *::after {
+  border-radius: 0 !important;
+  corner-shape: square !important;
+}
+
+/* Paint the ambient pixel grid on the stable body canvas, not on the frame
+   whose grid-template-columns animates when the rail collapses. This keeps
+   the collapse from repainting a full-window 4px pattern every frame. */
+body[data-dsh-silver-wolf] {
+  color: var(--sw-text-100);
+  background-color: var(--sw-base-900) !important;
+  background-image:
+    radial-gradient(ellipse 70% 60% at 12% -8%, rgb(64 77 240 / 20%), transparent 60%),
+    radial-gradient(ellipse 55% 55% at 100% 0%, rgb(98 230 255 / 8%), transparent 58%),
+    linear-gradient(rgb(98 230 255 / 3.2%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(98 230 255 / 3.2%) 1px, transparent 1px);
+  background-size: auto, auto, 4px 4px, 4px 4px;
+  background-attachment: fixed;
+}
+
+body[data-dsh-silver-wolf] #root {
+  background: transparent !important;
+}
+
+body[data-dsh-silver-wolf] .BynINW_frame {
+  background: transparent !important;
+}
+
+body[data-dsh-silver-wolf] .BynINW_centerCol {
+  background: transparent !important;
+}
+
+body[data-dsh-silver-wolf] .BynINW_sidebarCol {
+  background-color: var(--sw-base-950) !important;
+  border-right: 1px solid var(--sw-line-700) !important;
+}
+
+body[data-dsh-silver-wolf] .Dc7zOa_root,
+body[data-dsh-silver-wolf] .Dc7zOa_header {
+  background: transparent !important;
+}
+
+body[data-dsh-silver-wolf] .Dc7zOa_header {
+  border-bottom: 1px solid var(--sw-line-700) !important;
+}
+
+body[data-dsh-silver-wolf] [data-conversation-content] {
+  isolation: isolate;
+}
+
+body[data-dsh-silver-wolf] .Dc7zOa_composerSeat {
+  background: linear-gradient(
+    180deg,
+    transparent 0,
+    var(--sw-base-900) 40px
+  ) !important;
+}
+
+body[data-dsh-silver-wolf] ::selection {
+  background: rgb(98 230 255 / 28%);
+  color: var(--sw-text-100);
+}
+
+/* Fine pixel grid on solid raised surfaces, not a large retro mosaic. */
+body[data-dsh-silver-wolf] ._2H3hWW_root {
+  background-color: var(--sw-base-950) !important;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgb(98 230 255 / 8%) 1px, transparent 1.2px),
+    linear-gradient(180deg, rgb(67 92 255 / 8%), transparent 34%);
+  background-size: 5px 5px, auto;
+  border-right: 1px solid var(--sw-line-700);
+}
+
+/* --------------------------------------------------------------------------
+   3. Solid panels, menus, dialogs. No backdrop blur; edges are cut instead.
+   -------------------------------------------------------------------------- */
+body[data-dsh-silver-wolf] .BynINW_frame :is(
+  [role="dialog"],
+  [role="alertdialog"],
+  [role="menu"],
+  [role="listbox"],
+  [data-menu-material],
+  [data-radix-popper-content-wrapper] > *,
+  .wCInkW_panel
+) {
+  background-color: var(--sw-panel-900) !important;
+  background-image:
+    linear-gradient(rgb(98 230 255 / 2.6%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(98 230 255 / 2.6%) 1px, transparent 1px);
+  background-size: 4px 4px;
+  border: 1px solid var(--sw-line-600) !important;
+  box-shadow:
+    6px 6px 0 rgb(0 0 0 / 45%),
+    inset 0 0 0 1px rgb(93 121 255 / 10%) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+body[data-dsh-silver-wolf] .wCInkW_panel,
+body[data-dsh-silver-wolf] [data-slot="sidebar.settings"] [role="dialog"] {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 18px) 0,
+    100% 18px,
+    100% 100%,
+    26px 100%,
+    0 calc(100% - 26px)
+  );
+}
+
+/* Light-mode chrome: DSH's pure-white presets glare beside the dark chat.
+   Scope a softer off-white palette to dialogs and popover surfaces only. */
+body[data-dsh-silver-wolf]:not([data-ds-dark-theme]) :is(
+  [role="dialog"],
+  [role="alertdialog"],
+  [role="menu"],
+  [role="listbox"],
+  [data-menu-material],
+  [data-radix-popper-content-wrapper] > *,
+  [data-slot="sidebar.settings"] [role="dialog"],
+  .wCInkW_panel
+) {
+  --dsw-static-neutral-00: #f4f6f9;
+  --dsw-static-neutral-50: #eef1f5;
+  --dsw-static-neutral-100: #e8ecf2;
+  --dsw-alias-bg-base: #edf0f5;
+  --dsw-alias-bg-layer-1: #f7f8fa;
+  --dsw-alias-bg-layer-2: #e9edf3;
+  --dsw-alias-bg-layer-3: #e1e6ee;
+  --dsw-alias-bg-overlay: #f3f5f8;
+  --dsw-alias-bg-module-platform: #e9edf3;
+  --dsw-alias-bg-skeleton: #e4e9f0;
+  --dsw-alias-bg-multi-select: #e5eaf2;
+  --dsw-alias-border-l1: #dfe4ec;
+  --dsw-alias-border-l2: #d3dae4;
+  --dsw-alias-border-l3: #c8d0dc;
+  --dsw-alias-border-l4: #bcc5d2;
+  --dsw-alias-label-primary: #2f3544;
+  --dsw-alias-label-secondary: #596273;
+  --dsw-alias-label-tertiary: #7d8695;
+  --dsw-alias-interactive-bg-hover: #e8ecf2;
+  --dsw-alias-interactive-bg-hover-solid: #e3e8f0;
+  --dsw-alias-interactive-bg-active: #dde5ef;
+  --dsw-alias-settings-card-fill: #f4f6f9;
+  --dsw-alias-settings-card-stroke: #d9e0e9;
+  --dsw-specific-menu: #f2f4f7;
+  --dsw-specific-sidebar-fill: #eef1f5;
+  --dsw-specific-input-major: #f8f9fb;
+  --dsw-alias-menu-group-header-fill: #e6ebf2;
+  --dsw-alias-menu-icon: #596273;
+  background-color: #CDC6F1 !important;
+  background-image: none !important;
+  border-color: #d3dae4 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+body[data-dsh-silver-wolf] :is(
+  [role="dialog"],
+  [role="alertdialog"],
+  [role="menu"],
+  [role="listbox"],
+  [data-menu-material],
+  [data-radix-popper-content-wrapper] > *
+)::backdrop {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+body[data-dsh-silver-wolf] [role="tooltip"],
+body[data-dsh-silver-wolf] [class*="bubble"][role="tooltip"] {
+  background: #050811 !important;
+  color: var(--sw-text-100) !important;
+  border: 1px solid var(--sw-blue-800) !important;
+  box-shadow: 3px 3px 0 rgb(0 0 0 / 55%) !important;
+  backdrop-filter: none !important;
+}
+
+body[data-dsh-silver-wolf] :is(hr, [role="separator"]) {
+  border: 0 !important;
+  height: 1px !important;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--sw-line-600) 0 2px,
+    transparent 2px 4px
+  ) !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Text, links, focus. Pink is limited to focus rings and active markers.
+   -------------------------------------------------------------------------- */
+body[data-dsh-silver-wolf] a {
+  color: var(--sw-cyan-500);
+  text-decoration-color: rgb(98 230 255 / 45%);
+  text-shadow: 0 0 7px rgb(98 230 255 / 28%);
+}
+
+body[data-dsh-silver-wolf] a:hover {
+  color: var(--sw-cyan-400);
+  text-shadow: 0 0 9px rgb(98 230 255 / 48%);
+}
+
+body[data-dsh-silver-wolf] :is(
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  [contenteditable="true"],
+  [role="button"],
+  [role="menuitem"],
+  [role="option"],
+  [role="tab"]
+):focus-visible {
+  outline: 1px solid var(--sw-pink-500) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 1px var(--sw-pink-500) !important;
+}
+
+body[data-dsh-silver-wolf] [class*="tabActive"]::after {
+  background: var(--sw-pink-500) !important;
+}
+
+body[data-dsh-silver-wolf] [class*="session"]:is([aria-current="page"], [aria-selected="true"], [data-active="true"])::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 7px;
+  bottom: 7px;
+  width: 2px;
+  background: var(--sw-pink-500);
+  box-shadow: 0 0 6px rgb(255 79 134 / 36%);
+}
+
+/* --------------------------------------------------------------------------
+   5. Composer, inputs, primary actions.
+   -------------------------------------------------------------------------- */
+body[data-dsh-silver-wolf] [data-composer-card] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  position: relative;
+  isolation: isolate;
+}
+
+/* The composer is drawn as two stacked clipped layers:
+   ::before = the 1px border surface, ::after = the inset grid fill.
+   Both follow the asymmetric cuts, so the focus ring wraps the cut edges
+   instead of drawing a rectangle around the card. */
+body[data-dsh-silver-wolf] [data-composer-card]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: var(--sw-composer-border);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    22px 100%,
+    0 calc(100% - 22px)
+  );
+  transition: background-color 120ms linear, filter 120ms linear;
+}
+
+body[data-dsh-silver-wolf] [data-composer-card]::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  pointer-events: none;
+  border: 0 !important;
+  background-color: var(--sw-panel-900);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgb(98 230 255 / 11%) 1px, transparent 1.25px),
+    linear-gradient(rgb(98 230 255 / 3.5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(98 230 255 / 3.5%) 1px, transparent 1px),
+    linear-gradient(180deg, rgb(67 92 255 / 7%), transparent 30%);
+  background-size: 4px 4px, 4px 4px, 4px 4px, auto;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 13px) 0,
+    100% 13px,
+    100% 100%,
+    21px 100%,
+    0 calc(100% - 21px)
+  );
+}
+
+body[data-dsh-silver-wolf] [data-composer-card]:focus-within::before {
+  background: var(--sw-pink-500);
+  filter: drop-shadow(0 0 4px rgb(255 79 134 / 35%));
+}
+
+body[data-dsh-silver-wolf] [data-composer-card] [contenteditable="true"],
+body[data-dsh-silver-wolf] [data-composer-card] textarea {
+  background: transparent !important;
+  color: var(--sw-text-100) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  caret-color: var(--sw-cyan-500) !important;
+}
+
+body[data-dsh-silver-wolf] :is(input:not([type="range"]):not([type="checkbox"]):not([type="radio"]), textarea, select) {
+  background-color: var(--sw-input-900) !important;
+  color: var(--sw-text-100) !important;
+  border: 1px solid var(--sw-line-700) !important;
+  box-shadow: inset 2px 2px 0 rgb(0 0 0 / 22%) !important;
+}
+
+body[data-dsh-silver-wolf] :is(input, textarea)::placeholder {
+  color: var(--sw-text-400) !important;
+}
+
+body[data-dsh-silver-wolf] :is(input, textarea, select):focus {
+  border-color: var(--sw-blue-500) !important;
+  box-shadow: 0 0 0 1px rgb(93 121 255 / 30%) !important;
+}
+
+/* The skin's own 300ms rail easing. DSH's frame transition is conditional on
+   data-animating; applying it here also covers synthetic toggles and avoids
+   the rail snapping in one frame. Dragging still opts out. */
+@media (prefers-reduced-motion: no-preference) {
+  body[data-dsh-silver-wolf] .BynINW_frame {
+    transition: grid-template-columns 280ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  body[data-dsh-silver-wolf] .BynINW_frame[data-dragging] {
+    transition: none !important;
+  }
+}
+
+body[data-dsh-silver-wolf] :is(button[aria-label="发送消息"], button[aria-label="排队发送"], button[aria-label="插话发送"], button[aria-label="Send message"], button[aria-label="Queue message"], button[aria-label="Steer message"]) {
+  box-sizing: border-box !important;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: var(--sw-blue-600) !important;
+  color: #f8fbff !important;
+  box-shadow:
+    inset 1px 1px 0 rgb(255 255 255 / 26%),
+    inset -1px -1px 0 rgb(0 0 0 / 38%) !important;
+  clip-path: polygon(0 3px, 3px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 3px) 100%, 0 100%);
+  opacity: 1 !important;
+}
+
+body[data-dsh-silver-wolf] :is(button[aria-label="发送消息"], button[aria-label="排队发送"], button[aria-label="插话发送"], button[aria-label="Send message"], button[aria-label="Queue message"], button[aria-label="Steer message"]):hover:not(:disabled) {
+  background: var(--sw-blue-500) !important;
+}
+
+body[data-dsh-silver-wolf] :is(button[aria-label="发送消息"], button[aria-label="排队发送"], button[aria-label="插话发送"], button[aria-label="Send message"], button[aria-label="Queue message"], button[aria-label="Steer message"]):disabled {
+  background: #141821 !important;
+  color: #4e5669 !important;
+  box-shadow:
+    inset 1px 1px 0 rgb(255 255 255 / 5%),
+    inset -1px -1px 0 rgb(0 0 0 / 46%) !important;
+}
+
+body[data-dsh-silver-wolf] :is(button[aria-label="发送消息"], button[aria-label="排队发送"], button[aria-label="插话发送"], button[aria-label="Send message"], button[aria-label="Queue message"], button[aria-label="Steer message"]):disabled svg {
+  opacity: 0.3 !important;
+}
+
+body[data-dsh-silver-wolf] :is(button[aria-label="停止生成"], button[aria-label="Stop generating"]) {
+  box-sizing: border-box !important;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: var(--sw-pink-500) !important;
+  color: #fff6f9 !important;
+  box-shadow:
+    inset 1px 1px 0 rgb(255 255 255 / 28%),
+    inset -1px -1px 0 rgb(0 0 0 / 32%) !important;
+  clip-path: polygon(0 3px, 3px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 3px) 100%, 0 100%);
+  opacity: 1 !important;
+}
+
+body[data-dsh-silver-wolf] :is(button[aria-label="停止生成"], button[aria-label="Stop generating"]) svg rect {
+  rx: 0 !important;
+  ry: 0 !important;
+}
+
+body[data-dsh-silver-wolf] button[class*="_primary_"] {
+  border-radius: 0 !important;
+  border: 1px solid rgb(126 151 255 / 35%) !important;
+  background: var(--sw-blue-600) !important;
+  color: #f8fbff !important;
+  box-shadow:
+    inset 1px 1px 0 rgb(255 255 255 / 20%),
+    inset -1px -1px 0 rgb(0 0 0 / 30%) !important;
+}
+
+body[data-dsh-silver-wolf] button[class*="_primary_"]:hover:not(:disabled) {
+  background: var(--sw-blue-500) !important;
+}
+
+body[data-dsh-silver-wolf] button[class*="_primary_"]:disabled {
+  background: #141821 !important;
+  color: #4e5669 !important;
+  border-color: #232a3b !important;
+  opacity: 1 !important;
+}
+
+body[data-dsh-silver-wolf] button[class*="_outline_"] {
+  border: 1px solid var(--sw-line-600) !important;
+  background: transparent !important;
+  color: var(--sw-text-200) !important;
+  box-shadow: none !important;
+}
+
+body[data-dsh-silver-wolf] button[class*="_outline_"]:hover:not(:disabled) {
+  background: var(--sw-panel-800) !important;
+  border-color: var(--sw-blue-700) !important;
+  color: var(--sw-text-100) !important;
+}
+
+/* Approval / question sheets: allow = send-enabled, reject = send-disabled. */
+body[data-dsh-silver-wolf] [class*="j_8BDW_actionRow"] > button:first-child,
+body[data-dsh-silver-wolf] [data-question-key] button[class*="_outline_"] {
+  background: #141821 !important;
+  color: var(--sw-text-200) !important;
+  border: 1px solid #2a3143 !important;
+  box-shadow: inset 1px 1px 0 rgb(255 255 255 / 5%) !important;
+}
+
+body[data-dsh-silver-wolf] [class*="j_8BDW_actionRow"] > button:first-child:hover,
+body[data-dsh-silver-wolf] [data-question-key] button[class*="_outline_"]:hover {
+  background: #1c2230 !important;
+  color: var(--sw-text-100) !important;
+}
+
+body[data-dsh-silver-wolf] [class*="j_8BDW_actionRow"] > button:last-child {
+  background: var(--sw-blue-600) !important;
+  color: #f8fbff !important;
+  border: 1px solid rgb(126 151 255 / 35%) !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Chat rows, bubbles, tool cards, settings cards.
+   -------------------------------------------------------------------------- */
+body[data-dsh-silver-wolf] [data-chat-flow-kind="user"] [class*="_bubble"],
+body[data-dsh-silver-wolf] [data-chat-flow-kind="steering"] [class*="_bubble"],
+body[data-dsh-silver-wolf] [class*="_userStack"] [class*="_bubble"] {
+  background-color: var(--sw-panel-850) !important;
+  background-image:
+    linear-gradient(rgb(98 230 255 / 2.4%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(98 230 255 / 2.4%) 1px, transparent 1px);
+  background-size: 4px 4px;
+  border: 1px solid var(--sw-line-600) !important;
+  box-shadow: 3px 3px 0 rgb(0 0 0 / 30%) !important;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+}
+
+body[data-dsh-silver-wolf] [class*="_flowItem"] [class*="_card"],
+body[data-dsh-silver-wolf] [data-tool] > [class*="_card"],
+body[data-dsh-silver-wolf] [class*="_settingsCard"] {
+  background: var(--sw-panel-900) !important;
+  border-color: var(--sw-line-700) !important;
+  box-shadow: 2px 2px 0 rgb(0 0 0 / 25%) !important;
+}
+
+body[data-dsh-silver-wolf] [data-chat-flow-kind="turn-process"] [class*="_callRow"],
+body[data-dsh-silver-wolf] [data-chat-flow-kind="tool-call"] [class*="_callRow"] {
+  border: 1px solid var(--sw-line-700) !important;
+  background: rgb(9 13 25 / 72%) !important;
+}
+
+body[data-dsh-silver-wolf] .j_8BDW_card,
+body[data-dsh-silver-wolf] .P2izSq_card,
+body[data-dsh-silver-wolf] .mAtvLq_card {
+  background: var(--sw-panel-900) !important;
+  border-color: var(--sw-line-600) !important;
+  box-shadow: 5px 5px 0 rgb(0 0 0 / 40%) !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    18px 100%,
+    0 calc(100% - 18px)
+  );
+}
+
+body[data-dsh-silver-wolf] :is(
+  [class*="_skeleton"],
+  [class*="_skeleton"] *
+) {
+  background-color: #11182a !important;
+  background-image:
+    linear-gradient(rgb(98 230 255 / 5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(98 230 255 / 5%) 1px, transparent 1px) !important;
+  background-size: 4px 4px !important;
+}
+
+body[data-dsh-silver-wolf] :is([class*="spinner"], [class*="Spinner"], [class*="loading"], [class*="Loading"]) {
+  border-radius: 0 !important;
+  animation-timing-function: steps(8, end) !important;
+  filter: drop-shadow(0 0 3px var(--sw-glow-cyan)) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. Silver Wolf motifs: VIP-shaped badge immediately to the right of
+   "deepseek HARNESS", plus a restrained square avatar frame. The avatar does
+   not get ears or horns. The badge is absolutely positioned so it cannot push
+   the rail toggle or change the brand row's measured width during collapse.
+   -------------------------------------------------------------------------- */
+body[data-dsh-silver-wolf] [class*="_brandName"] {
+  position: relative;
+}
+
+body[data-dsh-silver-wolf] [class*="_brandName"]::after {
+  content: "SW // VIP";
+  position: absolute;
+  left: calc(100% + 7px);
+  top: 50%;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  padding: 0 6px;
+  color: var(--sw-cyan-400);
+  background:
+    linear-gradient(90deg, rgb(67 92 255 / 22%), rgb(98 230 255 / 10%)),
+    var(--sw-panel-900);
+  border: 1px solid var(--sw-blue-700);
+  box-shadow: inset 0 0 0 1px rgb(98 230 255 / 8%), 0 0 7px rgb(98 230 255 / 16%);
+  clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+  font-family: inherit;
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  text-shadow: 0 0 6px rgb(98 230 255 / 35%);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+body[data-dsh-silver-wolf] [class*="_avatar"] {
+  position: relative !important;
+  overflow: visible !important;
+  border: 1px solid var(--sw-blue-500) !important;
+  box-shadow: 0 0 0 2px var(--sw-base-950), 0 0 7px rgb(93 121 255 / 28%) !important;
+}
+
+.sw-avatar-pin {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 14px;
+  height: 16px;
+  background-image: url("./assets/silver-wolf-badge.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 4px rgb(98 230 255 / 45%));
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* --------------------------------------------------------------------------
+   8. Centered wallpaper ornament. It lives inside [data-conversation-content],
+   so opening the left rail shifts it with the chat column, not the viewport.
+   z-index:-1 + isolation keeps it below every message and control.
+   -------------------------------------------------------------------------- */
+.sw-wallpaper-frame {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  z-index: -1;
+  width: min(var(--sw-wallpaper-width, 760px), calc(80vh * 1.074), 94%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  user-select: none;
+  opacity: var(--sw-wallpaper-opacity, 0.24);
+  filter: saturate(0.82) brightness(0.78) contrast(1.03);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  clip-path: polygon(
+    0 28px,
+    28px 0,
+    calc(100% - 62px) 0,
+    100% 62px,
+    100% calc(100% - 26px),
+    calc(100% - 26px) 100%,
+    52px 100%,
+    0 calc(100% - 52px)
+  );
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.sw-wallpaper-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.sw-wallpaper-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 2px,
+    rgb(6 8 18 / 14%) 2px 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+[data-content-phase="hero"] .sw-wallpaper-frame {
+  top: 44%;
+  opacity: 0.34;
+}
+
+[data-content-phase="active"] .sw-wallpaper-frame {
+  opacity: var(--sw-wallpaper-opacity, 0.24);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sw-wallpaper-frame {
+    transition: opacity 240ms linear;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Pixel scan line on state controls. Send/stop and mode switches only.
+   -------------------------------------------------------------------------- */
+body[data-dsh-silver-wolf] :is(
+  button[aria-label="发送消息"],
+  button[aria-label="排队发送"],
+  button[aria-label="插话发送"],
+  button[aria-label="Send message"],
+  button[aria-label="Queue message"],
+  button[aria-label="Steer message"],
+  button[aria-label="停止生成"],
+  button[aria-label="Stop generating"],
+  [data-slot="conversation.input.left"] button,
+  [data-slot="conversation.input.permission"] button,
+  [data-slot="conversation.input.plan"] button
+) {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+body[data-dsh-silver-wolf] :is(
+  button[aria-label="发送消息"],
+  button[aria-label="排队发送"],
+  button[aria-label="插话发送"],
+  button[aria-label="Send message"],
+  button[aria-label="Queue message"],
+  button[aria-label="Steer message"],
+  button[aria-label="停止生成"],
+  button[aria-label="Stop generating"],
+  [data-slot="conversation.input.left"] button,
+  [data-slot="conversation.input.permission"] button,
+  [data-slot="conversation.input.plan"] button
+)::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 2px, rgb(98 230 255 / 20%) 2px 3px),
+    linear-gradient(90deg, transparent 0 35%, rgb(98 230 255 / 0%) 42%, rgb(98 230 255 / 58%) 50%, rgb(98 230 255 / 0%) 58%, transparent 100%);
+  transform: translateX(-130%);
+  mix-blend-mode: screen;
+  animation: sw-scan 7.5s linear infinite;
+  animation-delay: var(--sw-scan-delay, 0s);
+}
+
+body[data-dsh-silver-wolf] :is(
+  button[aria-label="发送消息"],
+  button[aria-label="排队发送"],
+  button[aria-label="插话发送"],
+  button[aria-label="Send message"],
+  button[aria-label="Queue message"],
+  button[aria-label="Steer message"],
+  button[aria-label="停止生成"],
+  button[aria-label="Stop generating"],
+  [data-slot="conversation.input.left"] button,
+  [data-slot="conversation.input.permission"] button,
+  [data-slot="conversation.input.plan"] button
+) > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes sw-scan {
+  0%, 64% { transform: translateX(-130%); opacity: 0; }
+  66% { opacity: 1; }
+  78% { transform: translateX(130%); opacity: 1; }
+  80%, 100% { transform: translateX(130%); opacity: 0; }
+}
+
+/* CSS fallback used only when Element.animate is unavailable. */
+.sw-flicker-css {
+  animation: sw-flicker var(--sw-flicker-duration, 23s) steps(1, end) var(--sw-flicker-delay, 0s) infinite;
+}
+
+@keyframes sw-flicker {
+  0%, 88%, 100% { filter: none; }
+  89% { filter: brightness(1.45) drop-shadow(0 0 3px var(--sw-glow-cyan)); }
+  90% { filter: none; }
+  91% { filter: brightness(1.6) drop-shadow(0 0 4px var(--sw-glow-cyan)); }
+  92% { filter: none; }
+}
+
+/* --------------------------------------------------------------------------
+   10. Scrollbar and selection details.
+   -------------------------------------------------------------------------- */
+body[data-dsh-silver-wolf] * {
+  scrollbar-color: var(--sw-line-500) transparent;
+}
+
+body[data-dsh-silver-wolf] *::-webkit-scrollbar-thumb {
+  background: var(--sw-line-500) !important;
+  border: 2px solid transparent !important;
+  background-clip: content-box !important;
+}
+
+body[data-dsh-silver-wolf] *::-webkit-scrollbar-thumb:hover {
+  background: var(--sw-blue-700) !important;
+  background-clip: content-box !important;
+}
+
+/* --------------------------------------------------------------------------
+   11. Reduced motion: no scan line, no flicker, no width transition.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable only this skin's motion. Host transitions (including the sidebar
+     rail animation) stay under DSH's own reduced-motion policy. */
+  .sw-wallpaper-frame,
+  .sw-flicker-css {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body[data-dsh-silver-wolf] :is(
+    button[aria-label="发送消息"],
+    button[aria-label="停止生成"],
+    [data-slot="conversation.input.left"] button,
+    [data-slot="conversation.input.permission"] button,
+    [data-slot="conversation.input.plan"] button
+  )::after {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. Narrow windows: the brand-row badge would crowd the compact sidebar;
+   keep it hidden below the wide layout. The wallpaper stays inside.
+   -------------------------------------------------------------------------- */
+@media (width <= 1500px) {
+  body[data-dsh-silver-wolf] [class*="_brandName"]::after {
+    display: none;
+  }
+}
+
+@media (width <= 720px) {
+  .sw-wallpaper-frame {
+    width: min(var(--sw-wallpaper-width, 760px), 88%);
+    opacity: calc(var(--sw-wallpaper-opacity, 0.24) * 0.8);
+  }
+}

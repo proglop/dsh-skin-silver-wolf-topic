@@ -1,0 +1,6 @@
+# Silver Wolf skin bundle patch.
+# This row is part of the installed package. The skin manager owns the
+# profile/home disabled-state rows; do not hand-edit those managed blocks.
+- insert:
+    - id: ui-skin-silver-wolf
+      name: 'dsh-client-ui-skin-silver-wolf'
