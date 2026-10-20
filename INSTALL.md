@@ -63,7 +63,7 @@ C:\Users\a1916\.dsh\profiles\desktop\node_modules\dsh-skin-silver-wolf-topic
 
 ```json
 "dependencies": {
-  "dsh-skin-silver-wolf-topic": "file:D:/.../dsh-skin-silver-wolf-topic-1.0.10.tgz"
+  "dsh-skin-silver-wolf-topic": "file:D:/.../dsh-skin-silver-wolf-topic-1.0.11.tgz"
 },
 "dsh": {
   "profile": {
@@ -76,7 +76,7 @@ C:\Users\a1916\.dsh\profiles\desktop\node_modules\dsh-skin-silver-wolf-topic
 ```
 
 - `dsh.profile.bundles` 由安装器追加，**不要手动编辑**。
-- 本机当前依赖是 `file:D:/.../dsh-skin-silver-wolf-topic-1.0.10.tgz`（管理器从 tgz 重装以清除旧客户端缓存）；若按本说明的目录路线安装，则会是 `link:<皮肤目录>`。两种都不要手改这个 spec。
+- 本机当前依赖是 `file:D:/.../dsh-skin-silver-wolf-topic-1.0.11.tgz`（管理器从 tgz 重装以清除旧客户端缓存）；若按本说明的目录路线安装，则会是 `link:<皮肤目录>`。两种都不要手改这个 spec。
 - 包的 `cordis.patch.yml` 会插入真正的加载行 `ui-skin-silver-wolf`。
 
 ### 4.2 profile `cordis.patch.yml`
@@ -96,7 +96,7 @@ C:\Users\a1916\.dsh\profiles\desktop\node_modules\dsh-skin-silver-wolf-topic
 
 `lib/client.js` 被 DSH 的 client module loader 执行后：
 
-1. 创建同源 `<link rel="stylesheet" href="/skin-assets/silver-wolf/skin.css?v=1.0.10">`。
+1. 创建同源 `<link rel="stylesheet" href="/skin-assets/silver-wolf/skin.css?v=1.0.11">`。
 2. `lib/index.js` 在 Host 侧注册 `/skin-assets/silver-wolf` 前缀路由，只白名单提供：
    - `skin.css`
    - `assets/silver-wolf-chat.png`
@@ -133,7 +133,7 @@ C:\Users\a1916\.dsh\profiles\desktop\node_modules\dsh-skin-silver-wolf-topic
    (Invoke-WebRequest 'http://127.0.0.1:13968/skin-assets/silver-wolf/assets/silver-wolf-badge.png' -UseBasicParsing).StatusCode
    ```
    两个都应为 `200`。
-4. **强制刷新一次**，再重启 DSH。皮肤 1.0.10 的 CSS 使用 `no-cache`，图片仍有 1 小时缓存；旧页面可能缓存了 CSS 或 client module。
+4. **强制刷新一次**，再重启 DSH。皮肤 1.0.11 的 CSS 使用 `no-cache`，图片仍有 1 小时缓存；旧页面可能缓存了 CSS 或 client module。
 5. **检查是否同时激活了另一套皮肤**。manager 只允许一套活动皮肤；确认「深海女仆工坊」和「虎鲸链路」都是官方默认/禁用状态。
 6. **确认没有手动改 patch**。如果 profile 的 managed 区段被手改，管理器的启动兜底可能回退官方默认。用「设置 → 皮肤」重新切换即可修复。
 
@@ -141,7 +141,7 @@ C:\Users\a1916\.dsh\profiles\desktop\node_modules\dsh-skin-silver-wolf-topic
 
 ## 6. 浅色模式下的设置与菜单
 
-聊天区/侧栏/composer 固定为银狼深色；设置对话框和账户菜单跟随 DSH「内置插件 → 外观」的浅色/深色选择。浅色模式下设置页和皮肤页应为浅色，这是 1.0.10 的预期行为。若设置页仍全黑，确认加载的是 1.0.10 CSS，而不是旧页面缓存。
+聊天区/侧栏/composer 固定为银狼深色；设置对话框和账户菜单跟随 DSH「内置插件 → 外观」的浅色/深色选择。浅色模式下设置页和皮肤页应为浅色，这是 1.0.11 的预期行为。若设置页仍全黑，确认加载的是 1.0.11 CSS，而不是旧页面缓存。
 
 ## 7. 壁纸滑杆与 localStorage
 

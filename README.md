@@ -21,12 +21,6 @@
 - 侧栏收起保留 280ms 的缓出过渡；`SW // VIP` 绝对定位在品牌文字右侧，不参与布局，因此不推挤侧栏开关或造成品牌行宽度跳动。
 - 设置 → 皮肤内的「壁纸装饰宽度」滑杆，640–920 px。
 
-## 安装（npm，推荐）
-
-```bash
-dsh plugin --profile desktop add dsh-skin-silver-wolf-topic
-```
-
 ## 安装（本地目录）
 
 见 [INSTALL.md](INSTALL.md)。本地交付场景的路线是左侧栏「插件」→ 安装第三方插件 → 填写解包后的皮肤目录绝对路径。不要手动编辑 profile 的 dsh.profile.bundles 或两层 cordis.patch.yml 的 managed 区段。

@@ -3,4 +3,4 @@
 # profile/home disabled-state rows; do not hand-edit those managed blocks.
 - insert:
     - id: ui-skin-silver-wolf
-      name: 'dsh-client-ui-skin-silver-wolf'
+      name: 'dsh-skin-silver-wolf-topic'
