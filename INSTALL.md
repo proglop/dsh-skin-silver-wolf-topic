@@ -1,7 +1,7 @@
 # 安装与排查
 
 > 如果你通过 `dsh plugin add` 从 npm 安装，激活步骤与本文相同；本文的"解包 .tgz"路线是离线/本地交付场景的备用方案。
-适用环境：**DeepSeek Harness Desktop 0.2.1-rc.2**，当前 profile 为 `desktop`，dsh-skin-manager 0.1.10。
+适用环境：**DeepSeek Harness Desktop 0.2.1-rc.2**，当前 profile 为 `desktop`，[dsh-skin-manager](https://github.com/xiaoyangcheng84-svg/dsh-skin-manager) 0.1.10。
 
 > 本文只讲本地交付场景的安装路线：**解包 `.tgz`（或直接使用交付目录）→ 左侧栏「插件」→「安装第三方插件」→ 填含有 `package.json` 的目录绝对路径**。
 >

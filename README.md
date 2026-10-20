@@ -2,6 +2,10 @@
 
 > 面向 DSH Desktop 0.2.1-rc.2 的银狼主题皮肤包 · 深色 · 像素风 · 含壁纸装饰滑杆
 
+## 运行时依赖
+
+本皮肤通过 [dsh-skin-manager](https://github.com/xiaoyangcheng84-svg/dsh-skin-manager) 发现、安装和切换。皮肤本身（`skin.css`、`lib/client.js`、`skin.json`、素材）为本包原创；manager 是独立安装的运行时框架，不随本包分发。
+
 ## 特征
 
 - 蓝紫底深黑画布，实心面板，无毛玻璃。
