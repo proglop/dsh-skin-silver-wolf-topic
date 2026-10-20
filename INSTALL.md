@@ -12,7 +12,7 @@
 `.tgz` 只用于传输和归档，内容保留完整目录结构；标准 npm/pnpm tarball 解包后顶层是 `package/`，这是正常的，安装时选到 `package.json` 所在那一层即可。先解包到稳定路径；如果直接使用本工作区，则源目录是：
 
 ```text
-D:\dsh-client-ui-skin-silver-wolf-topic\dist\dsh-client-ui-skin-silver-wolf
+D:\dsh-skin-silver-wolf-topic\dist\dsh-skin-silver-wolf-topic
 ```
 
 解包后的目录里必须直接看到：
@@ -34,7 +34,7 @@ preview/
 2. 选择 **「安装第三方插件」**。
 3. 填入**皮肤目录的绝对路径**，也就是 `package.json` 所在的那一层。例如：
    ```text
-   D:\dsh-skins\dsh-client-ui-skin-silver-wolf
+   D:\dsh-skins\dsh-skin-silver-wolf-topic
    ```
 4. 点击安装。安装器会通过 pnpm 把这个目录加入 desktop profile。
 5. 结果若显示 **applied**，热加载已生效；若显示 **restart required**，重启 DSH 一次再继续。
@@ -42,10 +42,10 @@ preview/
 安装后的固定落点：
 
 ```text
-C:\Users\a1916\.dsh\profiles\desktop\node_modules\dsh-client-ui-skin-silver-wolf
+C:\Users\a1916\.dsh\profiles\desktop\node_modules\dsh-skin-silver-wolf-topic
 ```
 
-本地目录安装会是一个指向源目录的 junction/link。`package.json` 的包名必须是 `dsh-client-ui-skin-silver-wolf`。
+本地目录安装会是一个指向源目录的 junction/link。`package.json` 的包名必须是 `dsh-skin-silver-wolf-topic`。
 
 ## 3. 激活
 
@@ -63,20 +63,20 @@ C:\Users\a1916\.dsh\profiles\desktop\node_modules\dsh-client-ui-skin-silver-wolf
 
 ```json
 "dependencies": {
-  "dsh-client-ui-skin-silver-wolf": "file:D:/.../dsh-client-ui-skin-silver-wolf-1.0.10.tgz"
+  "dsh-skin-silver-wolf-topic": "file:D:/.../dsh-skin-silver-wolf-topic-1.0.10.tgz"
 },
 "dsh": {
   "profile": {
     "bundles": [
       "...",
-      "dsh-client-ui-skin-silver-wolf"
+      "dsh-skin-silver-wolf-topic"
     ]
   }
 }
 ```
 
 - `dsh.profile.bundles` 由安装器追加，**不要手动编辑**。
-- 本机当前依赖是 `file:D:/.../dsh-client-ui-skin-silver-wolf-1.0.10.tgz`（管理器从 tgz 重装以清除旧客户端缓存）；若按本说明的目录路线安装，则会是 `link:<皮肤目录>`。两种都不要手改这个 spec。
+- 本机当前依赖是 `file:D:/.../dsh-skin-silver-wolf-topic-1.0.10.tgz`（管理器从 tgz 重装以清除旧客户端缓存）；若按本说明的目录路线安装，则会是 `link:<皮肤目录>`。两种都不要手改这个 spec。
 - 包的 `cordis.patch.yml` 会插入真正的加载行 `ui-skin-silver-wolf`。
 
 ### 4.2 profile `cordis.patch.yml`
@@ -167,7 +167,7 @@ C:\Users\a1916\.dsh\profiles\desktop\node_modules\dsh-client-ui-skin-silver-wolf
 ## 9. 卸载或切换
 
 1. 在 **设置 → 皮肤** 切回官方默认。
-2. 在左侧栏 **插件** 页卸载 `dsh-client-ui-skin-silver-wolf`。
+2. 在左侧栏 **插件** 页卸载 `dsh-skin-silver-wolf-topic`。
 3. 不要手动删 `node_modules` 里的目录，也不要手动清 patch；管理器会处理 bundle 选择和依赖。
 
 ## 10. 文件对照表

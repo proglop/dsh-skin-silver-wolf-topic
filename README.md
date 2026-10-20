@@ -24,7 +24,7 @@
 ## 安装（npm，推荐）
 
 ```bash
-dsh plugin --profile desktop add dsh-client-ui-skin-silver-wolf
+dsh plugin --profile desktop add dsh-skin-silver-wolf-topic
 ```
 
 ## 安装（本地目录）
@@ -61,7 +61,7 @@ dsh plugin --profile desktop add dsh-client-ui-skin-silver-wolf
 <summary>点击展开</summary>
 
 ```text
-dsh-client-ui-skin-silver-wolf/
+dsh-skin-silver-wolf-topic/
 ├─ package.json
 ├─ cordis.patch.yml        # 包自身的 ui-skin-silver-wolf 行
 ├─ skin.json               # manager 发现的清单；preview 字段已填
