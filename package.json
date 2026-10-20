@@ -1,5 +1,5 @@
 {
-  "name": "dsh-client-ui-skin-silver-wolf",
+  "name": "dsh-skin-silver-wolf-topic",
   "version": "1.0.10",
   "description": "Silver Wolf // Pixel Intrusion — a dark-only, blue-violet pixel skin for the DSH desktop GUI.",
   "type": "module",
@@ -19,6 +19,9 @@
       "inject": [],
       "platform": "web"
     }
+  },
+  "peerDependencies": {
+    "dsh-skin-manager": ">=0.1.10"
   },
   "files": [
     "lib/index.js",
