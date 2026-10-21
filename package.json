@@ -1,40 +1,15 @@
 {
-  "name": "dsh-skin-silver-wolf-topic",
+  "name": "dsh-silver-wolf",
   "version": "1.0.11",
-  "description": "Silver Wolf // Pixel Intrusion — a dark-only, blue-violet pixel skin for the DSH desktop GUI.",
-  "type": "module",
-  "main": "lib/index.js",
-  "icon": "assets/icons/silver-wolf.png",
-  "exports": {
-    ".": "./lib/index.js",
-    "./client": "./lib/client.js",
-    "./skin.json": "./skin.json",
-    "./package.json": "./package.json"
-  },
-  "dsh": {
-    "bundle": {
-      "patch": "./cordis.patch.yml"
-    },
-    "client": {
-      "inject": [],
-      "platform": "web"
-    }
-  },
-  "peerDependencies": {
-    "dsh-skin-manager": ">=0.1.10"
-  },
-  "files": [
-    "lib/index.js",
-    "lib/client.js",
-    "cordis.patch.yml",
-    "skin.json",
-    "skin.css",
-    "assets",
-    "preview",
-    "README.md",
-    "INSTALL.md",
-    "SELECTORS.md",
-    "LICENSE"
+  "private": true,
+  "description": "Silver Wolf skin + skin manager for DeepSeek Harness Desktop",
+  "license": "MIT",
+  "packageManager": "pnpm@11.28.5",
+  "workspaces": [
+    "packages/*"
   ],
-  "license": "UNLICENSED"
+  "scripts": {
+    "pack": "node scripts/pack.mjs",
+    "checksums": "node scripts/checksums.mjs release"
+  }
 }
