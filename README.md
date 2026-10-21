@@ -1,72 +1,53 @@
-# Silver Wolf // DSH Skin Suite
+# 银狼 · 像素骇入
 
-一个 GitHub 仓库，两个可独立安装的 DSH 包：
+Silver Wolf // Pixel Intrusion，面向 DSH Desktop 的深色像素皮肤。
 
-- `packages/manager` — `dsh-skin-manager` 0.1.10：设置 → 皮肤，负责切换、互斥和壁纸宽度滑杆
-- `packages/skin` — `dsh-skin-silver-wolf-topic` 1.0.11：银狼皮肤本体（CSS、壁纸、头像框、像素动效）
+![preview](preview/dark.png)
 
-> 这两个包必须**同时安装**。只装皮肤包不会出现“皮肤”设置页；只装管理器只会看到空列表。
+本包依赖
+[dsh-skin-manager](https://github.com/proglop/dsh-skin-manager)。
+**只安装本包即可**：pnpm 会自动安装管理器，本包的 bundle patch 会自动插入
+管理器的 loader 行，“设置 → 皮肤”页面随之出现。不要单独安装管理器。
 
-![preview](docs/preview.png)
+## 特征
 
-## 安装（DSH Desktop）
+- 蓝紫底深黑画布、实心面板、直角与像素网格
+- 聊天区中央银狼装饰，随侧栏收展平移
+- 壁纸宽度滑杆 640–920 px
+- 浅色模式下设置页/账户菜单使用柔和中性色；聊天区保持深色
+- 头像方块、添加文件按钮偏移、随机按钮闪烁均遵守 `prefers-reduced-motion`
 
-1. 从 [Releases](../../releases) 下载两个 `.tgz`：
-   - `dsh-skin-manager-0.1.10.tgz`
-   - `dsh-skin-silver-wolf-topic-1.0.11.tgz`
-2. 打开 DSH：**设置 → 插件**，分别安装这两个包。
-3. **完全退出 DSH 后重新打开**。
-4. 进入 **设置 → 皮肤**，选择“银狼 · 像素骇入”。
+## 安装
 
-实际加载位置是：
+在 DSH 打开 **设置 → 插件**，只安装：
+
+```text
+github:proglop/dsh-skin-silver-wolf-topic
+```
+
+管理器会作为依赖自动安装，并由本包的 bundle patch 自动加载。安装后
+**完全退出 DSH 再重新打开**，打开 **设置 → 皮肤**，选择
+“银狼 · 像素骇入”。
+
+实际加载位置为 profile 的 `node_modules`：
 
 ```text
 %USERPROFILE%\.dsh\profiles\desktop\node_modules\dsh-skin-manager
 %USERPROFILE%\.dsh\profiles\desktop\node_modules\dsh-skin-silver-wolf-topic
 ```
 
-Desktop 是 Electron 保留 profile，**不要使用 `dsh plugin --profile desktop add`**；该命令会被 DSH 拒绝。请走设置里的插件安装面板。
-
-## 浅色/深色
-
-- 聊天区、侧栏和 composer 始终是银狼深色皮肤。
-- 设置面板和账户菜单跟随 DSH「外观」设置；浅色模式使用柔和的中性色，而不是纯白。
-- 壁纸宽度：设置 → 皮肤 → 银狼 → 壁纸装饰宽度，640–920 px。
-
-## 仓库结构
-
-```text
-packages/
-  manager/    # dsh-skin-manager（基于 xiaoyangcheng84-svg 的 MIT 框架）
-  skin/       # 银狼皮肤包
-docs/
-  preview.png
-scripts/
-  checksums.mjs
-.github/workflows/
-  release.yml
-```
+Desktop 是 Electron 保留 profile，**不要用
+`dsh plugin --profile desktop add`**；该命令会被拒绝。
 
 ## 开发
 
-```sh
-pnpm run pack
-pnpm run checksums
-```
-
-客户端 bundle 是手写的 `window.__ModuleLoader__.load` 格式，不需要额外构建步骤。
-
-## 发布
-
-推送 `v*` tag 会触发 GitHub Actions，生成两个 tgz 和 `SHA256SUMS.txt`，并创建 Release：
+本包无需构建。`lib/client.js` 是手写的 `window.__ModuleLoader__.load`
+bundle，`skin.css` 直接随包分发。
 
 ```sh
-git tag v1.0.11
-git push origin v1.0.11
+pnpm pack --pack-destination release
 ```
 
-## 许可与素材
+## 许可
 
-- `packages/manager`：MIT，原作者 xiaoyangcheng84-svg；本仓库的改动同样以 MIT 提供。
-- `packages/skin` 的**代码**：MIT。
-- 银狼角色和图片素材来自 `@proglop` 提供的文件；角色与原始美术权利归各自权利人。MIT **不覆盖**这些图片素材，公开前请确认你有权发布。详见 [NOTICE.md](NOTICE.md)。
+代码 MIT；图片素材不包含在 MIT 中，详见 [ASSETS.md](ASSETS.md)。

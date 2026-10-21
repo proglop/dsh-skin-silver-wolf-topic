@@ -2,5 +2,7 @@
 # This row is part of the installed package. The skin manager owns the
 # profile/home disabled-state rows; do not hand-edit those managed blocks.
 - insert:
+    - id: ui-skin-manager
+      name: 'dsh-skin-manager'
     - id: ui-skin-silver-wolf
       name: 'dsh-skin-silver-wolf-topic'

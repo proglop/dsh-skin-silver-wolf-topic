@@ -2,22 +2,23 @@
 
 ## 前置
 
-必须同时安装：
+只安装本包即可。`dsh-skin-manager` 是本包的 **dependencies**，安装时由 pnpm
+自动拉取；本包的 bundle patch 会自动插入 `ui-skin-manager` 和
+`ui-skin-silver-wolf` 两个 loader 行。
 
-- `dsh-skin-manager`（同仓库 `packages/manager`）
-- `dsh-skin-silver-wolf-topic`（本包）
-
-只安装皮肤包时，DSH 不会出现“皮肤”设置页；管理器负责发现和切换皮肤。
+**不要单独安装管理器**，否则可能出现重复 loader 行。旧版本地管理器请先
+删除，再安装本包。
 
 ## Desktop 安装步骤
 
-1. 从 Releases 下载：
-   - `dsh-skin-manager-0.1.10.tgz`
-   - `dsh-skin-silver-wolf-topic-1.0.11.tgz`
-2. 打开 DSH：**设置 → 插件**。
-3. 先安装管理器，再安装皮肤包。
-4. **完全退出 DSH 后重新打开**。
-5. 打开 **设置 → 皮肤**，选择“银狼 · 像素骇入”。
+在 **设置 → 插件** 中只安装：
+
+```text
+github:proglop/dsh-skin-silver-wolf-topic
+```
+
+安装后**完全退出 DSH 再重新打开**，打开 **设置 → 皮肤**，选择
+“银狼 · 像素骇入”。管理器会随本包自动安装并加载。
 
 安装后的实际位置：
 
