@@ -62,7 +62,6 @@ body[data-dsh-silver-wolf] :is(
 | `[data-composer-card]:focus-within::before` | 粉红边框面；沿右上/左下切角闭合，并带轻微粉红光晕 |
 | `[data-composer-card] button[class*="RlGAzG_add"]` | JS `installComposerAddOffset()` 将添加文件按钮内联平移 10px；只移动按钮，不移动编辑器/模式/发送 |
 | `[data-composer-card] [contenteditable="true"]` | 透明编辑区、青色光标、无圆角 |
-| `[data-composer-card] [contenteditable="true"]` | 透明编辑区、青色光标、无圆角 |
 | `[data-composer-card] textarea` | 同上 |
 | `input:not([type="range"]):not([type="checkbox"]):not([type="radio"])` | 实心输入底 + 1px 边 + 内阴影 |
 | `textarea`、`select` | 同上 |
