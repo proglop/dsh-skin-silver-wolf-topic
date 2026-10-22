@@ -41,6 +41,12 @@ github:proglop/dsh-skin-silver-wolf-topic
 Desktop 是 Electron 保留 profile，**不要用
 `dsh plugin --profile desktop add`**；该命令会被拒绝。
 
+如果显示安装失败，请打开 `%USERPROFILE%\.dsh\profiles\desktop\pnpm-workspace.yaml`，添加以下内容以关闭 pnpm 安全策略（安装完成后建议改回，以重新开启安全策略）：
+
+```text
+blockExoticSubdeps: false
+```
+
 ## 外观模式
 
 仅提供深色配色（appearance: "dark"），不跟随 DSH 的 light 主题生成第二套配色——DSH 的 light 主题目前为实验性。聊天区、侧栏和 composer 始终深色；设置对话框和账户菜单跟随 DSH「外观」设置，浅色模式下这两处显示为浅色。实现细节见 [SELECTORS.md](SELECTORS.md)。
@@ -96,4 +102,5 @@ dsh-skin-silver-wolf-topic/
 ├─ README.md
 ├─ LICENSE
 └─ INSTALL.md
+</details>
 ```
