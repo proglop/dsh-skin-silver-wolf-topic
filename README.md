@@ -6,16 +6,17 @@ Silver Wolf // Pixel Intrusion，面向 DSH Desktop 的深色像素皮肤。
 
 *界面效果预览（包含角色素材，仅作演示，不随 MIT 授权）*
 
-本包依赖
-[dsh-skin-manager](https://github.com/proglop/dsh-skin-manager)。
-**只安装本包即可**：pnpm 会自动安装管理器，本包的 bundle patch 会自动插入
-管理器的 loader 行，“设置 → 皮肤”页面随之出现。不要单独安装管理器。
+本包**内置多皮肤管理器**，不再依赖外部 `dsh-skin-manager`。
+**只安装本包即可**：本包的 bundle patch 会插入唯一的
+`ui-skin-silver-wolf` loader 行；“设置 → 皮肤”页面由本包自己的客户端提供。
+不要单独安装旧的管理器。
 
 ## 特征
 
 - 蓝紫底深黑画布、实心面板、直角与像素网格
 - 聊天区中央银狼装饰，随侧栏收展平移
-- 壁纸宽度滑杆 640–920 px
+- 设置 → 皮肤：列出已安装皮肤、预览、切换、恢复官方、导入本地皮肤、卸载
+- 银狼皮肤专属的壁纸宽度滑杆 640–920 px
 - 浅色模式下设置页/账户菜单使用柔和中性色；聊天区保持深色
 - 头像方块、添加文件按钮偏移、随机按钮闪烁均遵守 `prefers-reduced-motion`
 
@@ -27,14 +28,15 @@ Silver Wolf // Pixel Intrusion，面向 DSH Desktop 的深色像素皮肤。
 github:proglop/dsh-skin-silver-wolf-topic
 ```
 
-管理器会作为依赖自动安装，并由本包的 bundle patch 自动加载。安装后
-**完全退出 DSH 再重新打开**，打开 **设置 → 皮肤**，选择
-“银狼 · 像素骇入”。
+管理器随本包一起加载。安装后**完全退出 DSH 再重新打开**，打开
+**设置 → 皮肤**，即可选择“银狼 · 像素骇入”或导入其他本地皮肤。
+
+切换、导入或卸载后，如果页面提示需要重启，请**完全退出 DSH 再重新打开**；
+只刷新界面不一定能让插件包变更生效。
 
 实际加载位置为 profile 的 `node_modules`：
 
 ```text
-%USERPROFILE%\.dsh\profiles\desktop\node_modules\dsh-skin-manager
 %USERPROFILE%\.dsh\profiles\desktop\node_modules\dsh-skin-silver-wolf-topic
 ```
 
@@ -57,8 +59,8 @@ blockExoticSubdeps: false
 
 ## 已知范围
 
-- 兼容性：DSH Desktop 0.2.1-rc.2 + [dsh-skin-manager](https://github.com/proglop/dsh-skin-manager) 0.1.11。哈希类名可能随 DSH 升级变化。
-- 选择器针对 DSH 0.2.1-rc.2 的实际 DOM；哈希类名可能在 DSH 升级后变化。作用域通配圆角规则不依赖哈希类名，能继续覆盖硬编码圆角。
+- 兼容性：DSH Desktop 0.2.1-rc.5（同时保留 0.2.1-rc.2/rc.3 的选择器）。哈希类名可能随 DSH 升级变化。
+- 选择器针对 DSH 0.2.1-rc.5 的实际 DOM；rc.5 仍使用 `mP3x-q_* / an3WzG_* / wtg9ga_*`，同时兼容 0.2.1-rc.2/rc.3 的旧哈希名。哈希类名可能在后续 DSH 升级后变化。作用域通配圆角规则不依赖哈希类名，能继续覆盖硬编码圆角。
 - Windows 原生窗口圆角、原生标题栏、内嵌浏览器 / iframe / canvas 终端内容不属于 DOM 皮肤作用域。
 - 第三方插件不被本皮肤改写。
 - 预览图 preview/dark.png 是真实桌面窗口截图（为隐私裁掉底部无关组件），仅作皮肤效果展示，其版权状态见下方「许可与素材权利」。
@@ -87,11 +89,11 @@ blockExoticSubdeps: false
 dsh-skin-silver-wolf-topic/
 ├─ package.json
 ├─ cordis.patch.yml        # 包自身的 ui-skin-silver-wolf 行
-├─ skin.json               # manager 发现的清单；preview 字段已填
+├─ skin.json               # 皮肤清单；preview 字段已填
 ├─ skin.css                # 真实加载的样式资产
 ├─ lib/
-│  ├─ index.js             # 同源 /skin-assets/silver-wolf/ 路由
-│  └─ client.js            # 注入 CSS、壁纸、头像框、闪烁、滑杆注册
+│  ├─ index.js             # 皮肤资产路由 + 内置多皮肤管理 API
+│  └─ client.js            # 皮肤视觉注入 + 设置页中的皮肤管理器
 ├─ assets/                 # 角色素材，不适用 MIT，保留所有权利
 │  ├─ silver-wolf-chat.png
 │  ├─ silver-wolf-badge.png

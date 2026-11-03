@@ -1,7 +1,7 @@
 # 选择器覆盖清单
-本清单基准为 DSH Desktop 0.2.1-rc.2。升级 DSH 后请用第 11 节的审计脚本重新核对，不要直接套用到新版本。
+本清单基准为 DSH Desktop 0.2.1-rc.5，并保留 0.2.1-rc.2/rc.3 的旧哈希名作为兼容。升级 DSH 后请用第 11 节的审计脚本重新核对，不要直接套用到新版本。
 
-作用域为 `body[data-dsh-silver-wolf]`。主题 alias 令牌挂在 `.BynINW_frame`；设置对话框、账户菜单等 portal 使用 DSH 的浅/深 token。基准 DOM：DSH Desktop **0.2.1-rc.2**（dsh-skin-manager 0.1.10）。哈希类名会随 DSH 升级变化；本清单同时列出较稳定的属性/角色选择器。
+作用域为 `body[data-dsh-silver-wolf]`。主题 alias 令牌挂在 `:is(.BynINW_frame, .mP3x-q_frame)`；设置对话框、账户菜单等 portal 使用 DSH 的浅/深 token。基准 DOM：DSH Desktop **0.2.1-rc.5**；rc.5 仍使用 `mP3x-q_* / an3WzG_* / wtg9ga_*`，管理页与皮肤视觉一起由本包的 client 提供。哈希类名会随 DSH 升级变化；本清单同时列出较稳定的属性/角色选择器。
 
 ## 1. 全局圆角兜底
 
@@ -20,14 +20,14 @@ body[data-dsh-silver-wolf] *::after {
 
 | 选择器 | 目的 |
 |---|---|
-| `.BynINW_frame` | 蓝紫深黑画布 + 4px 细像素格栅 + 两处霓虹渐变；`prefers-reduced-motion: no-preference` 时给侧栏 280ms 缓出过渡 |
-| `.BynINW_centerCol` | 透明化，让壁纸层显示在聊天区背景上 |
-| `.BynINW_sidebarCol` | 侧栏深黑底、1px 蓝边 |
-| `._2H3hWW_root` | 侧栏实心底 + 5px 像素点阵 |
-| `.Dc7zOa_root` | 聊天根透明 |
-| `.Dc7zOa_header` | 透明头部 + 1px 分段下边线 |
+| `:is(.BynINW_frame, .mP3x-q_frame)` | 蓝紫深黑画布 + 4px 细像素格栅 + 两处霓虹渐变；`prefers-reduced-motion: no-preference` 时给侧栏 280ms 缓出过渡 |
+| `:is(.BynINW_centerCol, .mP3x-q_centerCol)` | 透明化，让壁纸层显示在聊天区背景上 |
+| `:is(.BynINW_sidebarCol, .mP3x-q_sidebarCol)` | 侧栏深黑底、1px 蓝边 |
+| `:is(._2H3hWW_root, .wtg9ga_root)` | 侧栏实心底 + 5px 像素点阵 |
+| `:is(.Dc7zOa_root, .an3WzG_root)` | 聊天根透明 |
+| `:is(.Dc7zOa_header, .an3WzG_header)` | 透明头部 + 1px 分段下边线 |
 | `[data-conversation-content]` | `isolation: isolate`，容纳负 z-index 壁纸层 |
-| `.Dc7zOa_composerSeat` | 底部实心渐隐，保证输入器文字可读 |
+| `:is(.Dc7zOa_composerSeat, .an3WzG_composerSeat)` | 底部实心渐隐，保证输入器文字可读 |
 | `::selection` | 青色半透明选区 |
 
 ## 3. 实心面板 / 菜单 / 弹层
@@ -140,7 +140,7 @@ button, a, input, textarea, select, [contenteditable="true"],
 | `[class*="_avatar"]` | 24px 账户头像框基座，隐藏圆角、加蓝色像素边；**没有**兔耳/角伪元素 |
 | `.sw-avatar-pin` | JS 追加的小像素徽章；14×16，`image-rendering: pixelated` |
 
-`SW // VIP` 紧邻 `deepseek HARNESS` 右侧；绝对定位使它不会推挤侧栏开关或改变品牌行宽度。宽度 ≤1500px 时隐藏，避免窄侧栏裁切。用户头像只保留方形边框和小徽章，没有耳朵/角。
+`SW // VIP` 紧邻 `deepseek HARNESS` 右侧；绝对定位使它不会推挤侧栏开关或改变品牌行宽度。宽度 ≤1080px（rc.3 侧栏更宽，阈值相应下调）时隐藏，避免窄侧栏裁切。用户头像只保留方形边框和小徽章，没有耳朵/角。
 
 ## 8. 壁纸
 
@@ -155,7 +155,7 @@ button, a, input, textarea, select, [contenteditable="true"],
 | `[data-content-phase="active"]` | 对话中 47% 位置、默认 0.24 不透明度 |
 | `@media (width<=720px)` | 宽度上限 88%，避免小窗溢出 |
 
-`skin.css` 里的 `--sw-wallpaper-width` 由 dsh-skin-manager 的 range 控件发出 `dsh:skin-setting-change` 事件，再由皮肤 client 写入 `document.body.style`；没有改任何聊天宽度/字体令牌。
+`skin.css` 里的 `--sw-wallpaper-width` 由本包内置管理页的 range 控件写入 `dsh.skin-settings.v1` 并发出 `dsh:skin-setting-change` 事件，再由皮肤 client 写入 `document.body.style`；没有改任何聊天宽度/字体令牌。
 
 ## 9. 加载态、滚动条、动画
 

@@ -1,8 +1,6 @@
 # Silver Wolf skin bundle patch.
-# This row is part of the installed package. The skin manager owns the
-# profile/home disabled-state rows; do not hand-edit those managed blocks.
+# This package contains both the visual skin and its settings-page manager.
+# The manager is intentionally not a separate dependency or bundle row.
 - insert:
-    - id: ui-skin-manager
-      name: 'dsh-skin-manager'
     - id: ui-skin-silver-wolf
       name: 'dsh-skin-silver-wolf-topic'

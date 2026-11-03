@@ -52,7 +52,7 @@ body[data-dsh-silver-wolf] {
   background-color: var(--sw-theme-canvas);
 }
 
-body[data-dsh-silver-wolf] .BynINW_frame {
+body[data-dsh-silver-wolf] :is(.BynINW_frame, .mP3x-q_frame) {
   /* DSH semantic tokens. Colors only; no font, width, or spacing tokens. */
   --dsw-radius-xs: 0px;
   --dsw-radius-sm: 0px;
@@ -243,25 +243,25 @@ body[data-dsh-silver-wolf] #root {
   background: transparent !important;
 }
 
-body[data-dsh-silver-wolf] .BynINW_frame {
+body[data-dsh-silver-wolf] :is(.BynINW_frame, .mP3x-q_frame) {
   background: transparent !important;
 }
 
-body[data-dsh-silver-wolf] .BynINW_centerCol {
+body[data-dsh-silver-wolf] :is(.BynINW_centerCol, .mP3x-q_centerCol) {
   background: transparent !important;
 }
 
-body[data-dsh-silver-wolf] .BynINW_sidebarCol {
+body[data-dsh-silver-wolf] :is(.BynINW_sidebarCol, .mP3x-q_sidebarCol) {
   background-color: var(--sw-base-950) !important;
   border-right: 1px solid var(--sw-line-700) !important;
 }
 
-body[data-dsh-silver-wolf] .Dc7zOa_root,
-body[data-dsh-silver-wolf] .Dc7zOa_header {
+body[data-dsh-silver-wolf] :is(.Dc7zOa_root, .an3WzG_root),
+body[data-dsh-silver-wolf] :is(.Dc7zOa_header, .an3WzG_header) {
   background: transparent !important;
 }
 
-body[data-dsh-silver-wolf] .Dc7zOa_header {
+body[data-dsh-silver-wolf] :is(.Dc7zOa_header, .an3WzG_header) {
   border-bottom: 1px solid var(--sw-line-700) !important;
 }
 
@@ -269,7 +269,7 @@ body[data-dsh-silver-wolf] [data-conversation-content] {
   isolation: isolate;
 }
 
-body[data-dsh-silver-wolf] .Dc7zOa_composerSeat {
+body[data-dsh-silver-wolf] :is(.Dc7zOa_composerSeat, .an3WzG_composerSeat) {
   background: linear-gradient(
     180deg,
     transparent 0,
@@ -283,7 +283,7 @@ body[data-dsh-silver-wolf] ::selection {
 }
 
 /* Fine pixel grid on solid raised surfaces, not a large retro mosaic. */
-body[data-dsh-silver-wolf] ._2H3hWW_root {
+body[data-dsh-silver-wolf] :is(._2H3hWW_root, .wtg9ga_root) {
   background-color: var(--sw-base-950) !important;
   background-image:
     radial-gradient(circle at 1px 1px, rgb(98 230 255 / 8%) 1px, transparent 1.2px),
@@ -295,7 +295,7 @@ body[data-dsh-silver-wolf] ._2H3hWW_root {
 /* --------------------------------------------------------------------------
    3. Solid panels, menus, dialogs. No backdrop blur; edges are cut instead.
    -------------------------------------------------------------------------- */
-body[data-dsh-silver-wolf] .BynINW_frame :is(
+body[data-dsh-silver-wolf] :is(.BynINW_frame, .mP3x-q_frame) :is(
   [role="dialog"],
   [role="alertdialog"],
   [role="menu"],
@@ -545,11 +545,11 @@ body[data-dsh-silver-wolf] :is(input, textarea, select):focus {
    data-animating; applying it here also covers synthetic toggles and avoids
    the rail snapping in one frame. Dragging still opts out. */
 @media (prefers-reduced-motion: no-preference) {
-  body[data-dsh-silver-wolf] .BynINW_frame {
+  body[data-dsh-silver-wolf] :is(.BynINW_frame, .mP3x-q_frame) {
     transition: grid-template-columns 280ms cubic-bezier(0.22, 1, 0.36, 1) !important;
   }
 
-  body[data-dsh-silver-wolf] .BynINW_frame[data-dragging] {
+  body[data-dsh-silver-wolf] :is(.BynINW_frame, .mP3x-q_frame)[data-dragging] {
     transition: none !important;
   }
 }
@@ -992,7 +992,7 @@ body[data-dsh-silver-wolf] *::-webkit-scrollbar-thumb:hover {
    12. Narrow windows: the brand-row badge would crowd the compact sidebar;
    keep it hidden below the wide layout. The wallpaper stays inside.
    -------------------------------------------------------------------------- */
-@media (width <= 1500px) {
+@media (width <= 1080px) {
   body[data-dsh-silver-wolf] [class*="_brandName"]::after {
     display: none;
   }
