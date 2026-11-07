@@ -1,6 +1,6 @@
 {
   "name": "dsh-skin-silver-wolf-topic",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Silver Wolf // Pixel Intrusion — a dark-only, blue-violet pixel skin with a bundled multi-skin manager for the DSH desktop GUI.",
   "author": "Silver Wolf skin contributors",
   "license": "MIT",
@@ -38,6 +38,7 @@
     "README.md",
     "INSTALL.md",
     "SELECTORS.md",
+    "screenshots.json",
     "LICENSE",
     "ASSETS.md"
   ]

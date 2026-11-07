@@ -1,7 +1,7 @@
 # 选择器覆盖清单
-本清单基准为 DSH Desktop 0.2.1-rc.5，并保留 0.2.1-rc.2/rc.3 的旧哈希名作为兼容。升级 DSH 后请用第 11 节的审计脚本重新核对，不要直接套用到新版本。
+本清单基准为 DSH Desktop 0.2.2-rc.1，并保留 0.2.1-rc.2/rc.3/rc.5 的旧哈希名作为兼容。升级 DSH 后请用第 11 节的审计脚本重新核对，不要直接套用到新版本。
 
-作用域为 `body[data-dsh-silver-wolf]`。主题 alias 令牌挂在 `:is(.BynINW_frame, .mP3x-q_frame)`；设置对话框、账户菜单等 portal 使用 DSH 的浅/深 token。基准 DOM：DSH Desktop **0.2.1-rc.5**；rc.5 仍使用 `mP3x-q_* / an3WzG_* / wtg9ga_*`，管理页与皮肤视觉一起由本包的 client 提供。哈希类名会随 DSH 升级变化；本清单同时列出较稳定的属性/角色选择器。
+作用域为 `body[data-dsh-silver-wolf]`。主题 alias 令牌挂在 `body[data-dsh-silver-wolf]`，以便设置窗口/portal 继承同一套皮肤色；设置页使用 `[data-shortcut-modal="settings"]` 与 `AnXs9G_*` 选择器。基准 DOM：DSH Desktop **0.2.2-rc.1**；0.2.2-rc.1 仍使用 `mP3x-q_* / an3WzG_* / wtg9ga_*`，管理页与皮肤视觉一起由本包的 client 提供。哈希类名会随 DSH 升级变化；本清单同时列出较稳定的属性/角色选择器。
 
 ## 1. 全局圆角兜底
 

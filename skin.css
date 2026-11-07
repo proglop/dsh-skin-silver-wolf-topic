@@ -52,8 +52,10 @@ body[data-dsh-silver-wolf] {
   background-color: var(--sw-theme-canvas);
 }
 
-body[data-dsh-silver-wolf] :is(.BynINW_frame, .mP3x-q_frame) {
-  /* DSH semantic tokens. Colors only; no font, width, or spacing tokens. */
+body[data-dsh-silver-wolf] {
+  /* DSH semantic tokens. Colors only; no font, width, or spacing tokens.
+     Applied at the document level so DSH 0.2.2's separate Settings window
+     (which portals its panel to document.body) inherits the skin palette. */
   --dsw-radius-xs: 0px;
   --dsw-radius-sm: 0px;
   --dsw-radius-md: 0px;
@@ -1004,3 +1006,53 @@ body[data-dsh-silver-wolf] *::-webkit-scrollbar-thumb:hover {
     opacity: calc(var(--sw-wallpaper-opacity, 0.24) * 0.8);
   }
 }
+
+/* --------------------------------------------------------------------------
+   13. DSH 0.2.2 separate Settings window. Its panel is a body portal, so it
+   cannot inherit tokens scoped to the main frame; the document-level token
+   block above owns the palette. These rules square and ink the panel itself.
+   -------------------------------------------------------------------------- */
+body[data-dsh-silver-wolf] [data-shortcut-modal="settings"] {
+  color: var(--sw-text-100);
+  background: var(--sw-panel-850) !important;
+  border: 1px solid var(--sw-line-700) !important;
+  border-radius: 0 !important;
+  box-shadow: 7px 7px 0 rgb(0 0 0 / 48%) !important;
+}
+
+body[data-dsh-silver-wolf] :is(.AnXs9G_overlay, .AnXs9G_mask) {
+  background-color: rgb(2 4 10 / 78%) !important;
+  backdrop-filter: none !important;
+}
+
+body[data-dsh-silver-wolf] :is(
+  .AnXs9G_navTitle,
+  .AnXs9G_navCell,
+  .AnXs9G_navLabel,
+  .AnXs9G_header,
+  .AnXs9G_close,
+  .AnXs9G_options
+) {
+  color: var(--sw-text-100) !important;
+}
+
+body[data-dsh-silver-wolf] :is(.AnXs9G_nav, .AnXs9G_header) {
+  background: var(--sw-panel-900);
+  border-color: var(--sw-line-700);
+  border-radius: 0 !important;
+}
+
+body[data-dsh-silver-wolf] :is(.AnXs9G_navCell, .AnXs9G_close):hover {
+  background: var(--sw-panel-800) !important;
+}
+
+body[data-dsh-silver-wolf] .AnXs9G_navCell.AnXs9G_active {
+  background: var(--sw-panel-800) !important;
+  box-shadow: inset 2px 0 0 var(--sw-pink-500);
+}
+
+body[data-dsh-silver-wolf] .AnXs9G_options :is(input, textarea, select, button, [class*="_card"], [class*="_row"]) {
+  border-radius: 0 !important;
+  border-color: var(--sw-line-700);
+}
+
