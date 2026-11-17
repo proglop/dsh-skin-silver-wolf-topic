@@ -79,6 +79,7 @@ body[data-dsh-silver-wolf] {
 
   --dsw-specific-sidebar-fill: var(--sw-base-950);
   --dsw-specific-input-major: var(--sw-panel-900);
+  --dsw-menu-surface-fill: var(--sw-panel-900);
   --dsw-specific-menu: var(--sw-panel-900);
   --dsw-specific-selector: var(--sw-panel-800);
   --dsw-specific-bubble: var(--sw-panel-850);
@@ -181,39 +182,8 @@ body[data-dsh-silver-wolf] {
 
 }
 
-/* Light-mode chrome palette on the page root. The main frame keeps its dark
-   aliases; full-page surfaces such as the separate Settings window inherit
-   these softened off-whites instead of DSH's pure white presets. */
-body[data-dsh-silver-wolf]:not([data-ds-dark-theme]) {
-  --dsw-static-neutral-00: #f4f6f9;
-  --dsw-static-neutral-50: #eef1f5;
-  --dsw-static-neutral-100: #e8ecf2;
-  --dsw-alias-bg-base: #edf0f5;
-  --dsw-alias-bg-layer-1: #f7f8fa;
-  --dsw-alias-bg-layer-2: #e9edf3;
-  --dsw-alias-bg-layer-3: #e1e6ee;
-  --dsw-alias-bg-overlay: #f3f5f8;
-  --dsw-alias-bg-module-platform: #e9edf3;
-  --dsw-alias-bg-skeleton: #e4e9f0;
-  --dsw-alias-bg-multi-select: #e5eaf2;
-  --dsw-alias-border-l1: #dfe4ec;
-  --dsw-alias-border-l2: #d3dae4;
-  --dsw-alias-border-l3: #c8d0dc;
-  --dsw-alias-border-l4: #bcc5d2;
-  --dsw-alias-label-primary: #2f3544;
-  --dsw-alias-label-secondary: #596273;
-  --dsw-alias-label-tertiary: #7d8695;
-  --dsw-alias-interactive-bg-hover: #e8ecf2;
-  --dsw-alias-interactive-bg-hover-solid: #e3e8f0;
-  --dsw-alias-interactive-bg-active: #dde5ef;
-  --dsw-alias-settings-card-fill: #f4f6f9;
-  --dsw-alias-settings-card-stroke: #d9e0e9;
-  --dsw-specific-menu: #f2f4f7;
-  --dsw-specific-sidebar-fill: #eef1f5;
-  --dsw-specific-input-major: #f8f9fb;
-  --dsw-alias-menu-group-header-fill: #e6ebf2;
-  --dsw-alias-menu-icon: #596273;
-}
+/* Light appearance intentionally uses the same blue-violet dark palette as
+   dark appearance. No light-only token overrides. */
 
 /* --------------------------------------------------------------------------
    2. Global shape language + canvas. The wildcard is the safety net for
@@ -231,6 +201,7 @@ body[data-dsh-silver-wolf] *::after {
    the collapse from repainting a full-window 4px pattern every frame. */
 body[data-dsh-silver-wolf] {
   color: var(--sw-text-100);
+  color-scheme: dark;
   background-color: var(--sw-base-900) !important;
   background-image:
     radial-gradient(ellipse 70% 60% at 12% -8%, rgb(64 77 240 / 20%), transparent 60%),
@@ -297,7 +268,7 @@ body[data-dsh-silver-wolf] :is(._2H3hWW_root, .wtg9ga_root) {
 /* --------------------------------------------------------------------------
    3. Solid panels, menus, dialogs. No backdrop blur; edges are cut instead.
    -------------------------------------------------------------------------- */
-body[data-dsh-silver-wolf] :is(.BynINW_frame, .mP3x-q_frame) :is(
+body[data-dsh-silver-wolf] :is(
   [role="dialog"],
   [role="alertdialog"],
   [role="menu"],
@@ -331,52 +302,8 @@ body[data-dsh-silver-wolf] [data-slot="sidebar.settings"] [role="dialog"] {
   );
 }
 
-/* Light-mode chrome: DSH's pure-white presets glare beside the dark chat.
-   Scope a softer off-white palette to dialogs and popover surfaces only. */
-body[data-dsh-silver-wolf]:not([data-ds-dark-theme]) :is(
-  [role="dialog"],
-  [role="alertdialog"],
-  [role="menu"],
-  [role="listbox"],
-  [data-menu-material],
-  [data-radix-popper-content-wrapper] > *,
-  [data-slot="sidebar.settings"] [role="dialog"],
-  .wCInkW_panel
-) {
-  --dsw-static-neutral-00: #f4f6f9;
-  --dsw-static-neutral-50: #eef1f5;
-  --dsw-static-neutral-100: #e8ecf2;
-  --dsw-alias-bg-base: #edf0f5;
-  --dsw-alias-bg-layer-1: #f7f8fa;
-  --dsw-alias-bg-layer-2: #e9edf3;
-  --dsw-alias-bg-layer-3: #e1e6ee;
-  --dsw-alias-bg-overlay: #f3f5f8;
-  --dsw-alias-bg-module-platform: #e9edf3;
-  --dsw-alias-bg-skeleton: #e4e9f0;
-  --dsw-alias-bg-multi-select: #e5eaf2;
-  --dsw-alias-border-l1: #dfe4ec;
-  --dsw-alias-border-l2: #d3dae4;
-  --dsw-alias-border-l3: #c8d0dc;
-  --dsw-alias-border-l4: #bcc5d2;
-  --dsw-alias-label-primary: #2f3544;
-  --dsw-alias-label-secondary: #596273;
-  --dsw-alias-label-tertiary: #7d8695;
-  --dsw-alias-interactive-bg-hover: #e8ecf2;
-  --dsw-alias-interactive-bg-hover-solid: #e3e8f0;
-  --dsw-alias-interactive-bg-active: #dde5ef;
-  --dsw-alias-settings-card-fill: #f4f6f9;
-  --dsw-alias-settings-card-stroke: #d9e0e9;
-  --dsw-specific-menu: #f2f4f7;
-  --dsw-specific-sidebar-fill: #eef1f5;
-  --dsw-specific-input-major: #f8f9fb;
-  --dsw-alias-menu-group-header-fill: #e6ebf2;
-  --dsw-alias-menu-icon: #596273;
-  background-color: #CDC6F1 !important;
-  background-image: none !important;
-  border-color: #d3dae4 !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
+/* Light appearance uses the same dark chrome; the old off-white dialog
+   overrides were removed. */
 
 body[data-dsh-silver-wolf] :is(
   [role="dialog"],

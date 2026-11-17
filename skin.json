@@ -16,7 +16,7 @@
   ],
   "accent": "#435cff",
   "bodyAttr": "data-dsh-silver-wolf",
-  "dshCompatibility": "0.2.2rc1",
+  "dshCompatibility": "0.2.2rc3",
   "package": "dsh-skin-silver-wolf-topic",
   "wiring": {
     "id": "ui-skin-silver-wolf",
@@ -27,7 +27,8 @@
   },
   "appearance": "dark",
   "modes": [
-    "dark"
+    "dark",
+    "light"
   ],
   "order": 20,
   "assets": {
