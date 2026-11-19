@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/dsh-skin-silver-wolf-topic.svg)](https://www.npmjs.com/package/dsh-skin-silver-wolf-topic)
 [![license](https://img.shields.io/npm/l/dsh-skin-silver-wolf-topic.svg)](https://github.com/proglop/dsh-skin-silver-wolf-topic/blob/main/LICENSE)
-[![DSH](https://img.shields.io/badge/DSH-0.2.2--rc.3-4c5cff.svg)](https://github.com/deepseek-ai)
+[![DSH](https://img.shields.io/badge/DSH-0.2.2--rc.5-4c5cff.svg)](https://github.com/deepseek-ai)
 
 面向 **DeepSeek Harness Desktop** 的深色像素皮肤：蓝紫底、4px 像素网格、实心面板、
 直角 UI、聊天区中央银狼装饰，并**内置多皮肤管理器**。
@@ -30,18 +30,19 @@ It ships its own `settings → 皮肤` page and does **not** depend on the legac
 
 - 蓝紫深黑画布、4px 像素格栅、两处霓虹渐变
 - 直角与实心面板；全局 `border-radius: 0` + `corner-shape: square` 兜底
-- 聊天区中央银狼装饰，随侧栏收展平移
+- 聊天区中央银狼装饰，随侧栏收展平移，并随聊天区/窗口宽度自适应放大
 - **设置 → 皮肤**：列出已安装皮肤、查看预览、切换、恢复官方、导入本地皮肤、卸载
-- 银狼皮肤专属壁纸宽度滑杆：640–920 px，默认 760 px
+- 银狼壁纸不再提供手动宽度滑杆；装饰按聊天区宽度自适应缩放
 - 头像方块、添加文件按钮偏移、随机按钮闪烁均遵守 `prefers-reduced-motion`
 - 设置页/portal 与主界面共用同一套皮肤 token；不再出现“主界面有皮肤、设置页还是官方灰底”的割裂
+- 浅色外观下同样强制 `data-ds-dark-theme`，外部插件侧栏（如 `dsh-context`）不再回退为白色
 - 不引入外部字体；不修改第三方插件内容
 
 ## 环境要求
 
 | 项目 | 要求 |
 |---|---|
-| DSH | **Desktop 0.2.2-rc.3**（同时兼容 0.2.1-rc.2/rc.3/rc.5、0.2.2-rc.1 的选择器） |
+| DSH | **Desktop 0.2.2-rc.5**（同时兼容 0.2.1-rc.2/rc.3/rc.5、0.2.2-rc.1/rc.3 的选择器） |
 | 外观 | 强制蓝紫深色：即使 DSH 切到浅色外观，主界面、设置页和菜单也使用同一套深色皮肤 |
 | 平台 | Windows Desktop 优先；其他平台未做完整验证 |
 
@@ -74,7 +75,7 @@ github:proglop/dsh-skin-silver-wolf-topic
 
 ### 方式 C：本地 `.tgz` 安装（开发/离线）
 
-在插件安装入口选择本仓库 `dist/dsh-skin-silver-wolf-topic-1.1.3.tgz`，或直接把
+在插件安装入口选择本仓库 `dist/dsh-skin-silver-wolf-topic-1.1.5.tgz`，或直接把
 解包后的包目录作为本地插件安装。安装后同样需要完全退出并重新打开 DSH。
 
 ### 升级与卸载
@@ -91,15 +92,14 @@ github:proglop/dsh-skin-silver-wolf-topic
 2. 进入 **设置 → 皮肤**。
 3. 在皮肤列表中选择“银狼 · 像素骇入”，或导入其他本地皮肤包。
 4. 点击“预览”查看效果；点击“恢复官方”关闭皮肤视觉层。
-5. 选中银狼后，在列表下方拖动“壁纸宽度”滑杆（640–920 px）。
+5. 银狼壁纸会随聊天区宽度自适应缩放，不再需要手动调整宽度。
 
-壁纸宽度保存在浏览器 `localStorage`（`dsh.skin-settings.v1`），不会写入
-`cordis.patch.yml`。切换皮肤或导入/卸载后，如果页面提示需要重启，请**完全退出
-DSH** 再打开，单纯刷新界面不一定能让插件包变更生效。
+切换皮肤或导入/卸载后，如果页面提示需要重启，请**完全退出 DSH** 再打开，
+单纯刷新界面不一定能让插件包变更生效。
 
 ## 兼容性与已知限制
 
-- 选择器基准是 **DSH Desktop 0.2.2-rc.3**；CSS module 哈希类名可能随 DSH
+- 选择器基准是 **DSH Desktop 0.2.2-rc.5**；CSS module 哈希类名可能随 DSH
   升级变化。技术细节和审计脚本见 [SELECTORS.md](https://github.com/proglop/dsh-skin-silver-wolf-topic/blob/main/SELECTORS.md)。
 - **左上角“应用”菜单是 Electron 原生系统菜单，不是网页 DOM**。它的系统圆角
   由 Windows 绘制，皮肤 CSS 无法修改；如需直角只能改 DSH 外壳层（隐藏/替换
@@ -115,7 +115,7 @@ DSH** 再打开，单纯刷新界面不一定能让插件包变更生效。
 
 ```sh
 npm pack --dry-run     # 检查实际进入 tarball 的文件
-npm pack               # 生成 dsh-skin-silver-wolf-topic-1.1.3.tgz
+npm pack               # 生成 dsh-skin-silver-wolf-topic-1.1.5.tgz
 npm publish --access public
 ```
 

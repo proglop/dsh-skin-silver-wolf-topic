@@ -2,7 +2,7 @@
 
 ## 前置条件
 
-- **DSH Desktop 0.2.2-rc.3**（选择器同时兼容 0.2.1-rc.2/rc.3/rc.5、0.2.2-rc.1）
+- **DSH Desktop 0.2.2-rc.5**（选择器同时兼容 0.2.1-rc.2/rc.3/rc.5、0.2.2-rc.1/rc.3）
 - 只安装本包即可。本包**内置多皮肤管理器**，不再依赖外部
   `dsh-skin-manager`；bundle patch 只插入一个 `ui-skin-silver-wolf` loader 行。
 - 如果之前装过旧的 `dsh-skin-manager`，不要按旧文档再安装；在新管理器的
@@ -65,7 +65,7 @@ blockExoticSubdeps: false
 node -p "require(process.env.USERPROFILE + '/.dsh/profiles/desktop/node_modules/dsh-skin-silver-wolf-topic/package.json').version"
 ```
 
-预期输出：`1.1.3`。
+预期输出：`1.1.5`。
 
 ## 不要使用
 
@@ -82,10 +82,7 @@ Desktop 是 Electron 保留 profile，这条命令会被 DSH 拒绝。请使用�
 2. 打开 **设置 → 皮肤**；
 3. 选择“银狼 · 像素骇入”；
 4. 点击“预览”确认效果；
-5. 在列表下方调整“壁纸宽度”（640–920 px，默认 760 px）。
-
-壁纸宽度保存在浏览器 `localStorage`（键 `dsh.skin-settings.v1`），不会写入
-`cordis.patch.yml`。
+5. 银狼壁纸随聊天区宽度自适应缩放，不需要手动调整宽度。
 
 ## 切换、导入、卸载与升级
 
@@ -103,6 +100,7 @@ Desktop 是 Electron 保留 profile，这条命令会被 DSH 拒绝。请使用�
 | 安装后设置里没有“皮肤” | 完全退出 DSH 再打开；确认本包已启用，且没有同时安装旧 `dsh-skin-manager` |
 | 皮肤生效但设置页仍是官方灰底 | 确认本包版本 ≥ 1.1.2；旧版设置页 token 未覆盖 |
 | 选择模型等菜单仍半透明 | 使用 1.1.3+，并完全退出 DSH 再打开；1.1.3 将菜单面板改为 body 级实色 |
+| 浅色外观下上下文侧栏仍为白色 | 使用 1.1.4+；皮肤激活时会强制 `data-ds-dark-theme`，完全退出 DSH 再打开 |
 | 左上角“应用”菜单仍是圆角 | 这是 Electron 原生系统菜单，皮肤 CSS 无法修改；需 DSH 外壳层处理 |
 | 切换皮肤后界面没变 | 插件包切换通常需要完全退出 DSH 再打开 |
 | GitHub 安装失败 | 检查 pnpm `blockExoticSubdeps` 策略，或改用 npm/本地 tgz |

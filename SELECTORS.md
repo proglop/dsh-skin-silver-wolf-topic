@@ -147,15 +147,15 @@ button, a, input, textarea, select, [contenteditable="true"],
 | 选择器 | 目的 |
 |---|---|
 | `.sw-wallpaper-frame` | JS 插入到 `[data-conversation-content]` 第一个子节点 |
-| `width: min(var(--sw-wallpaper-width,760px), 80vh*1.074, 94%)` | 只控制装饰宽度 |
+| `width: min(96%, 1200px, 92vh*1.074)` | 随聊天区/窗口自适应放大，不再手调 |
 | `position:absolute; left:50%; top:47%; z-index:-1` | 聊天区居中、位于所有内容之下 |
 | `clip-path: polygon(...)` | 左上 28 / 右上 62 / 右下 26 / 左下 52px 非对称切角 |
 | `mask-image` 双线性渐变 | 四边柔化，避免硬矩形边 |
 | `[data-content-phase="hero"]` | 首屏空会话时 44% 位置、0.34 不透明度 |
 | `[data-content-phase="active"]` | 对话中 47% 位置、默认 0.24 不透明度 |
-| `@media (width<=720px)` | 宽度上限 88%，避免小窗溢出 |
+| `@media (width<=720px)` | 窄窗口下自适应宽度，避免溢出 |
 
-`skin.css` 里的 `--sw-wallpaper-width` 由本包内置管理页的 range 控件写入 `dsh.skin-settings.v1` 并发出 `dsh:skin-setting-change` 事件，再由皮肤 client 写入 `document.body.style`；没有改任何聊天宽度/字体令牌。
+壁纸宽度完全由 CSS 根据聊天区和视口计算，没有滑杆、localStorage 宽度设置或 `dsh:skin-setting-change` 事件；也没有改任何聊天宽度/字体令牌。
 
 ## 9. 加载态、滚动条、动画
 
